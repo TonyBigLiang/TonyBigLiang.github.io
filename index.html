@@ -81,13 +81,12 @@
 
 <meta name="keywords" content="架构师 分布式 大数据 java 高可用 高并发">
 <meta property="og:type" content="website">
-<meta property="og:title" content="分类">
-<meta property="og:url" content="http://yoursite.com/categories/index.html">
+<meta property="og:title" content="Tony  Liang&#39;s  Blog">
+<meta property="og:url" content="http://yoursite.com/index.html">
 <meta property="og:site_name" content="Tony  Liang&#39;s  Blog">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-07-04T09:18:24.615Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="分类">
+<meta name="twitter:title" content="Tony  Liang&#39;s  Blog">
 
 
 
@@ -117,13 +116,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/categories/">
+  <link rel="canonical" href="http://yoursite.com/">
 
 
 
 
 
-  <title>分类 | Tony  Liang's  Blog</title>
+  <title>Tony  Liang's  Blog</title>
   
 
 
@@ -142,7 +141,8 @@
     
   
 
-  <div class="container sidebar-position-left page-post-detail">
+  <div class="container sidebar-position-left 
+  page-home">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -235,44 +235,165 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
+  <section id="posts" class="posts-expand">
+    
+      
 
-  <div id="posts" class="posts-expand">
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/04/线上事故：一个用户如何打垮一个商业系统/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Tony Liang">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Tony  Liang's  Blog">
+    </span>
+
     
-    
-    
-    <div class="post-block page">
       <header class="post-header">
 
-	<h1 class="post-title" itemprop="name headline">分类</h1>
-
-
-
-</header>
-
-      
-      
-      
-      <div class="post-body">
         
         
-          <div class="category-all-page">
-            <div class="category-all-title">
-                目前共计 1 个分类
-            </div>
-            <div class="category-all">
-              <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/商业系统/">商业系统</a><span class="category-list-count">1</span></li></ul>
-            </div>
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/07/04/线上事故：一个用户如何打垮一个商业系统/" itemprop="url">线上事故：一个用户如何打垮一个商业系统</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-07-04T17:48:28+08:00">
+                2018-07-04
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/商业系统/" itemprop="url" rel="index">
+                    <span itemprop="name">商业系统</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+          商业系统会有针对预算和余额的校验。拿我们的系统来说，在投放阶段和计费阶段会校验。当发现用户预算或金额不足以支付下一次点击/电话时（撞线），会下掉用户下的所有广告。
+以上是业务背景，下面描述下遇到的一个大坑，以及填坑过程。
+现象描述早9:30收到用户反馈，商业产品投放时报错，广告管理列表白屏。
+排查发现商业系统服务不可用。表现为：接口请求超时，消息堆积。
+紧急修复为保证线上服务可用，将线上流量切换到备用集群上。观察后发现接口调用恢复正常，堆积消息开始消费。
+问题排查
+从监控平台来看，8~10点期间
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/07/04/线上事故：一个用户如何打垮一个商业系统/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
           </div>
+          <!--/noindex-->
         
-      </div>
-      
-      
       
     </div>
     
     
     
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
   </div>
+  
+  
+  
+  </article>
+
+
+    
+  </section>
+
+  
 
 
           </div>
@@ -280,10 +401,6 @@
 
 
           
-
-  
-
-
 
         </div>
         
@@ -498,10 +615,6 @@
   
 
   
-  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
-<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
-
-
 
   
 
