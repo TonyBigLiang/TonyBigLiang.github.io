@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT">
+  <meta name="keywords" content="商业系统,数据仓库,">
 
 
 
@@ -79,14 +79,18 @@
 
 
 
-<meta name="keywords" content="架构师 分布式 大数据 java 高可用 高并发">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Tony  Liang&#39;s  Blog">
-<meta property="og:url" content="http://yoursite.com/archives/2019/index.html">
+<meta name="description" content="在商业系统的迭代过程中，业务策略/推荐策略可能导致CTR/PVR等商业指标数据的波动，在分析数据排查问题时逐渐暴露了数据层面遇到的痛点。  SQL执行耗时长 检索日志每天请求在亿级别，如果有关联查询执行时间会更长。一个sql执行几十分钟是常有的事，有思路不能及时根据数据验证。  数据没有去燥  爬虫等恶意流量会造成商业指标抖动 数据采集语义保证至少采集一条，会有数据重复采集的情况。   不同产品通">
+<meta name="keywords" content="商业系统,数据仓库">
+<meta property="og:type" content="article">
+<meta property="og:title" content="商业系统数据仓库搭建(一)">
+<meta property="og:url" content="http://yoursite.com/2019/01/12/商业系统数据仓库搭建(一)/index.html">
 <meta property="og:site_name" content="Tony  Liang&#39;s  Blog">
+<meta property="og:description" content="在商业系统的迭代过程中，业务策略/推荐策略可能导致CTR/PVR等商业指标数据的波动，在分析数据排查问题时逐渐暴露了数据层面遇到的痛点。  SQL执行耗时长 检索日志每天请求在亿级别，如果有关联查询执行时间会更长。一个sql执行几十分钟是常有的事，有思路不能及时根据数据验证。  数据没有去燥  爬虫等恶意流量会造成商业指标抖动 数据采集语义保证至少采集一条，会有数据重复采集的情况。   不同产品通">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-07-08T07:11:31.894Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Tony  Liang&#39;s  Blog">
+<meta name="twitter:title" content="商业系统数据仓库搭建(一)">
+<meta name="twitter:description" content="在商业系统的迭代过程中，业务策略/推荐策略可能导致CTR/PVR等商业指标数据的波动，在分析数据排查问题时逐渐暴露了数据层面遇到的痛点。  SQL执行耗时长 检索日志每天请求在亿级别，如果有关联查询执行时间会更长。一个sql执行几十分钟是常有的事，有思路不能及时根据数据验证。  数据没有去燥  爬虫等恶意流量会造成商业指标抖动 数据采集语义保证至少采集一条，会有数据重复采集的情况。   不同产品通">
 
 
 
@@ -116,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/archives/2019/">
+  <link rel="canonical" href="http://yoursite.com/2019/01/12/商业系统数据仓库搭建(一)/">
 
 
 
 
 
-  <title>归档 | Tony  Liang's  Blog</title>
+  <title>商业系统数据仓库搭建(一) | Tony  Liang's  Blog</title>
   
 
 
@@ -141,7 +145,7 @@
     
   
 
-  <div class="container sidebar-position-left page-archive">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -235,107 +239,171 @@
           <div id="content" class="content">
             
 
+  <div id="posts" class="posts-expand">
+    
+
+  
+
   
   
   
-  <div class="post-block archive">
-    <div id="posts" class="posts-collapse">
-      <span class="archive-move-on"></span>
-
-      <span class="archive-page-counter">
-        
-        
-        
-          
-        
-        嗯..! 目前共计 2 篇日志。 继续努力。
-      </span>
-
-      
-
-        
-        
-        
-
-        
-          
-          <div class="collection-title">
-            <h1 class="archive-year" id="archive-year-2019">2019</h1>
-          </div>
-        
-        
-
-        
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/01/12/商业系统数据仓库搭建(一)/">
 
-      <h2 class="post-title">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Tony Liang">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Tony  Liang's  Blog">
+    </span>
+
+    
+      <header class="post-header">
+
         
-            <a class="post-title-link" href="/2019/01/12/商业系统数据仓库搭建(一)/" itemprop="url">
-              
-                <span itemprop="name">商业系统数据仓库搭建(一)</span>
-              
-            </a>
         
-      </h2>
+          <h1 class="post-title" itemprop="name headline">商业系统数据仓库搭建(一)</h1>
+        
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-01-12T14:07:31+08:00" content="2019-01-12">
-          01-12
-        </time>
-      </div>
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-01-12T14:07:31+08:00">
+                2019-01-12
+              </time>
+            
 
-    </header>
-  </article>
+            
 
+            
+          </span>
 
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2019/01/04/一个用户如何打垮一个商业系统/" itemprop="url">
-              
-                <span itemprop="name">一个用户如何打垮一个商业系统</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-01-04T17:48:28+08:00" content="2019-01-04">
-          01-04
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
       
 
+      
+        <p>在商业系统的迭代过程中，业务策略/推荐策略可能导致CTR/PVR等商业指标数据的波动，在分析数据排查问题时逐渐暴露了数据层面遇到的痛点。</p>
+<ol>
+<li><p>SQL执行耗时长</p>
+<p>检索日志每天请求在亿级别，如果有关联查询执行时间会更长。一个sql执行几十分钟是常有的事，有思路不能及时根据数据验证。</p>
+</li>
+<li><p>数据没有去燥</p>
+<ol>
+<li>爬虫等恶意流量会造成商业指标抖动</li>
+<li>数据采集语义保证至少采集一条，会有数据重复采集的情况。</li>
+</ol>
+</li>
+<li><p>不同产品通用维度字段不统一</p>
+</li>
+</ol>
+<p>针对以上痛点，我们着手开始搭建自己的数据仓库。</p>
+<p>##数据仓库目标</p>
+<ol>
+<li>支持多维分析，减少查询时间。</li>
+<li>数据去燥：组织不同数据来源，进行数据清洗，确保数据质量。</li>
+<li>数据打通：通用维度字段统一。</li>
+</ol>
+<p>参考资料：</p>
+<p>【数据仓库工具箱(第3版) – 维度建模权威指南】</p>
+
+      
     </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/商业系统/" rel="tag"># 商业系统</a>
+          
+            <a href="/tags/数据仓库/" rel="tag"># 数据仓库</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/01/04/一个用户如何打垮一个商业系统/" rel="next" title="一个用户如何打垮一个商业系统">
+                <i class="fa fa-chevron-left"></i> 一个用户如何打垮一个商业系统
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
 
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -343,6 +411,10 @@
 
 
           
+
+  
+
+
 
         </div>
         
@@ -557,6 +629,10 @@
   
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 

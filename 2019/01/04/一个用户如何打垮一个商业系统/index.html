@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="Tony  Liang&#39;s  Blog">
 <meta property="og:description" content="商业系统会有针对预算和余额的校验。拿我们的系统来说，在投放阶段和计费阶段会校验。当发现用户预算或金额不足以支付下一次点击/电话时（撞线），会下掉用户下的所有广告。 以上是业务背景，下面描述下遇到的一个大坑，以及填坑过程。 现象描述早9:30收到用户反馈，商业产品投放时报错，广告管理列表白屏。 排查发现商业系统服务不可用。表现为：接口请求超时，消息堆积。 紧急修复为保证线上服务可用，将线上流量切换到">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-07-05T10:02:02.096Z">
+<meta property="og:updated_time" content="2019-07-08T07:11:10.701Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="一个用户如何打垮一个商业系统">
 <meta name="twitter:description" content="商业系统会有针对预算和余额的校验。拿我们的系统来说，在投放阶段和计费阶段会校验。当发现用户预算或金额不足以支付下一次点击/电话时（撞线），会下掉用户下的所有广告。 以上是业务背景，下面描述下遇到的一个大坑，以及填坑过程。 现象描述早9:30收到用户反馈，商业产品投放时报错，广告管理列表白屏。 排查发现商业系统服务不可用。表现为：接口请求超时，消息堆积。 紧急修复为保证线上服务可用，将线上流量切换到">
@@ -362,19 +362,13 @@
 </ul>
 </li>
 </ol>
-<h2 id="事故反思-amp-修复方案"><a href="#事故反思-amp-修复方案" class="headerlink" title="事故反思 &amp; 修复方案"></a>事故反思 &amp; 修复方案</h2><ol>
-<li><p>事故发生时，作为服务方竟然没有感知到服务异常，这是不应该的。</p>
-<p>对此，增加服务耗时监控，rpc队列监控。</p>
-</li>
-<li><p>撞线等对广告的批量操作，增加<strong>分布式锁</strong>进行资源管控。防止接口被刷时进行的流量放大。</p>
-</li>
-<li><p>接口实现中，类似撞线等耗时量较高的分支操作提交到<strong>异步事件总线</strong>进行处理，降低接口耗时。</p>
-</li>
-<li><p>在投放入口增加防刷策略。</p>
-</li>
+<h2 id="修复方案"><a href="#修复方案" class="headerlink" title="修复方案"></a>修复方案</h2><ol>
+<li>撞线等对广告的批量操作，增加<strong>分布式锁</strong>进行资源管控。防止接口被刷时进行的流量放大。</li>
+<li>接口实现中，类似撞线等耗时量较高的分支操作提交到<strong>异步事件总线</strong>进行处理，降低接口耗时。</li>
+<li>在投放入口增加防刷策略。</li>
 </ol>
 <h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>总有刁民想害朕~~开个玩笑。</p>
-<p>生产情况再小的点也会被不断放大。精尽架构在路上。。。</p>
+<p>确实没有想到会有这样的case，生产情况再小的点也会因流量被不断放大。随着业务的不断拓展，系统也要不断的迭代去应对更复杂的场景。</p>
 
       
     </div>
@@ -401,6 +395,22 @@
       
       
 
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/01/12/商业系统数据仓库搭建(一)/" rel="prev" title="商业系统数据仓库搭建(一)">
+                商业系统数据仓库搭建(一) <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
       
 
       
@@ -474,7 +484,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-count">2</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -496,7 +506,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-count">2</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -529,7 +539,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#现象描述"><span class="nav-number">1.</span> <span class="nav-text">现象描述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#紧急修复"><span class="nav-number">2.</span> <span class="nav-text">紧急修复</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#问题排查"><span class="nav-number">3.</span> <span class="nav-text">问题排查</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#事故反思-amp-修复方案"><span class="nav-number">4.</span> <span class="nav-text">事故反思 &amp; 修复方案</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#总结"><span class="nav-number">5.</span> <span class="nav-text">总结</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#现象描述"><span class="nav-number">1.</span> <span class="nav-text">现象描述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#紧急修复"><span class="nav-number">2.</span> <span class="nav-text">紧急修复</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#问题排查"><span class="nav-number">3.</span> <span class="nav-text">问题排查</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#修复方案"><span class="nav-number">4.</span> <span class="nav-text">修复方案</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#总结"><span class="nav-number">5.</span> <span class="nav-text">总结</span></a></li></ol></div>
             
 
           </div>
