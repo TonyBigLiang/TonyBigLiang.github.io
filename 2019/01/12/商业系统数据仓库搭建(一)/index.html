@@ -79,19 +79,19 @@
 
 
 
-<meta name="description" content="在商业系统的迭代过程中，业务策略/推荐策略可能导致CTR/PVR等商业指标数据的波动，在分析数据排查问题时逐渐暴露了数据层面遇到的痛点。 数据分析痛点SQL执行耗时长检索日志每天请求在亿级别，如果有关联查询执行时间会更长。一个sql执行几十分钟是常有的事，有思路不能及时根据数据验证。 不同产品通用维度字段不统一数据没有去燥 爬虫等恶意流量会造成商业指标抖动 数据采集工具语义保证至少采集一条，会有数">
+<meta name="description" content="在商业系统的迭代过程中，业务策略/推荐策略可能导致CTR/PVR等商业指标数据的波动，在分析数据排查问题时逐渐暴露了数据层面遇到的痛点。 数据分析痛点1.SQL执行耗时长检索日志每天请求在亿级别，如果有关联查询执行时间会更长。一个sql执行几十分钟是常有的事，有思路不能及时根据数据验证。 2.不同产品通用维度字段不统一3.数据没有去燥 爬虫等恶意流量会造成商业指标抖动 数据采集工具语义保证至少采集">
 <meta name="keywords" content="商业系统,数据仓库">
 <meta property="og:type" content="article">
 <meta property="og:title" content="商业系统数据仓库搭建(一)">
 <meta property="og:url" content="http://yoursite.com/2019/01/12/商业系统数据仓库搭建(一)/index.html">
 <meta property="og:site_name" content="Tony  Liang&#39;s  Blog">
-<meta property="og:description" content="在商业系统的迭代过程中，业务策略/推荐策略可能导致CTR/PVR等商业指标数据的波动，在分析数据排查问题时逐渐暴露了数据层面遇到的痛点。 数据分析痛点SQL执行耗时长检索日志每天请求在亿级别，如果有关联查询执行时间会更长。一个sql执行几十分钟是常有的事，有思路不能及时根据数据验证。 不同产品通用维度字段不统一数据没有去燥 爬虫等恶意流量会造成商业指标抖动 数据采集工具语义保证至少采集一条，会有数">
+<meta property="og:description" content="在商业系统的迭代过程中，业务策略/推荐策略可能导致CTR/PVR等商业指标数据的波动，在分析数据排查问题时逐渐暴露了数据层面遇到的痛点。 数据分析痛点1.SQL执行耗时长检索日志每天请求在亿级别，如果有关联查询执行时间会更长。一个sql执行几十分钟是常有的事，有思路不能及时根据数据验证。 2.不同产品通用维度字段不统一3.数据没有去燥 爬虫等恶意流量会造成商业指标抖动 数据采集工具语义保证至少采集">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://yoursite.com/images/%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93%E6%9E%B6%E6%9E%84%E5%9B%BE.png">
-<meta property="og:updated_time" content="2019-07-08T09:29:39.040Z">
+<meta property="og:updated_time" content="2019-07-08T09:51:47.155Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="商业系统数据仓库搭建(一)">
-<meta name="twitter:description" content="在商业系统的迭代过程中，业务策略/推荐策略可能导致CTR/PVR等商业指标数据的波动，在分析数据排查问题时逐渐暴露了数据层面遇到的痛点。 数据分析痛点SQL执行耗时长检索日志每天请求在亿级别，如果有关联查询执行时间会更长。一个sql执行几十分钟是常有的事，有思路不能及时根据数据验证。 不同产品通用维度字段不统一数据没有去燥 爬虫等恶意流量会造成商业指标抖动 数据采集工具语义保证至少采集一条，会有数">
+<meta name="twitter:description" content="在商业系统的迭代过程中，业务策略/推荐策略可能导致CTR/PVR等商业指标数据的波动，在分析数据排查问题时逐渐暴露了数据层面遇到的痛点。 数据分析痛点1.SQL执行耗时长检索日志每天请求在亿级别，如果有关联查询执行时间会更长。一个sql执行几十分钟是常有的事，有思路不能及时根据数据验证。 2.不同产品通用维度字段不统一3.数据没有去燥 爬虫等恶意流量会造成商业指标抖动 数据采集工具语义保证至少采集">
 <meta name="twitter:image" content="http://yoursite.com/images/%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93%E6%9E%B6%E6%9E%84%E5%9B%BE.png">
 
 
@@ -323,8 +323,8 @@
 
       
         <p>在商业系统的迭代过程中，业务策略/推荐策略可能导致CTR/PVR等商业指标数据的波动，在分析数据排查问题时逐渐暴露了数据层面遇到的痛点。</p>
-<h2 id="数据分析痛点"><a href="#数据分析痛点" class="headerlink" title="数据分析痛点"></a>数据分析痛点</h2><h3 id="SQL执行耗时长"><a href="#SQL执行耗时长" class="headerlink" title="SQL执行耗时长"></a>SQL执行耗时长</h3><p>检索日志每天请求在亿级别，如果有关联查询执行时间会更长。一个sql执行几十分钟是常有的事，有思路不能及时根据数据验证。</p>
-<h3 id="不同产品通用维度字段不统一"><a href="#不同产品通用维度字段不统一" class="headerlink" title="不同产品通用维度字段不统一"></a>不同产品通用维度字段不统一</h3><h3 id="数据没有去燥"><a href="#数据没有去燥" class="headerlink" title="数据没有去燥"></a>数据没有去燥</h3><ul>
+<h2 id="数据分析痛点"><a href="#数据分析痛点" class="headerlink" title="数据分析痛点"></a>数据分析痛点</h2><h3 id="1-SQL执行耗时长"><a href="#1-SQL执行耗时长" class="headerlink" title="1.SQL执行耗时长"></a>1.SQL执行耗时长</h3><p>检索日志每天请求在亿级别，如果有关联查询执行时间会更长。一个sql执行几十分钟是常有的事，有思路不能及时根据数据验证。</p>
+<h3 id="2-不同产品通用维度字段不统一"><a href="#2-不同产品通用维度字段不统一" class="headerlink" title="2.不同产品通用维度字段不统一"></a>2.不同产品通用维度字段不统一</h3><h3 id="3-数据没有去燥"><a href="#3-数据没有去燥" class="headerlink" title="3.数据没有去燥"></a>3.数据没有去燥</h3><ul>
 <li>爬虫等恶意流量会造成商业指标抖动</li>
 <li>数据采集工具语义保证至少采集一条，会有数据重复采集的情况。</li>
 </ul>
@@ -507,7 +507,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#数据分析痛点"><span class="nav-number">1.</span> <span class="nav-text">数据分析痛点</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#SQL执行耗时长"><span class="nav-number">1.1.</span> <span class="nav-text">SQL执行耗时长</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#不同产品通用维度字段不统一"><span class="nav-number">1.2.</span> <span class="nav-text">不同产品通用维度字段不统一</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数据没有去燥"><span class="nav-number">1.3.</span> <span class="nav-text">数据没有去燥</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数据仓库整体架构"><span class="nav-number">2.</span> <span class="nav-text">数据仓库整体架构</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#数据分析痛点"><span class="nav-number">1.</span> <span class="nav-text">数据分析痛点</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-SQL执行耗时长"><span class="nav-number">1.1.</span> <span class="nav-text">1.SQL执行耗时长</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-不同产品通用维度字段不统一"><span class="nav-number">1.2.</span> <span class="nav-text">2.不同产品通用维度字段不统一</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-数据没有去燥"><span class="nav-number">1.3.</span> <span class="nav-text">3.数据没有去燥</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数据仓库整体架构"><span class="nav-number">2.</span> <span class="nav-text">数据仓库整体架构</span></a></li></ol></div>
             
 
           </div>
