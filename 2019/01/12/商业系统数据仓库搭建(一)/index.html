@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="Tony  Liang&#39;s  Blog">
 <meta property="og:description" content="在商业系统的迭代过程中，业务策略/推荐策略可能导致CTR/PVR等商业指标数据的波动，在分析数据排查问题时逐渐暴露了数据层面遇到的痛点。  SQL执行耗时长 检索日志每天请求在亿级别，如果有关联查询执行时间会更长。一个sql执行几十分钟是常有的事，有思路不能及时根据数据验证。  数据没有去燥  爬虫等恶意流量会造成商业指标抖动 数据采集语义保证至少采集一条，会有数据重复采集的情况。   不同产品通">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-07-08T07:11:31.894Z">
+<meta property="og:updated_time" content="2019-07-08T07:14:38.324Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="商业系统数据仓库搭建(一)">
 <meta name="twitter:description" content="在商业系统的迭代过程中，业务策略/推荐策略可能导致CTR/PVR等商业指标数据的波动，在分析数据排查问题时逐渐暴露了数据层面遇到的痛点。  SQL执行耗时长 检索日志每天请求在亿级别，如果有关联查询执行时间会更长。一个sql执行几十分钟是常有的事，有思路不能及时根据数据验证。  数据没有去燥  爬虫等恶意流量会造成商业指标抖动 数据采集语义保证至少采集一条，会有数据重复采集的情况。   不同产品通">
@@ -322,24 +322,23 @@
       
         <p>在商业系统的迭代过程中，业务策略/推荐策略可能导致CTR/PVR等商业指标数据的波动，在分析数据排查问题时逐渐暴露了数据层面遇到的痛点。</p>
 <ol>
-<li><p>SQL执行耗时长</p>
+<li><p><strong>SQL执行耗时长</strong></p>
 <p>检索日志每天请求在亿级别，如果有关联查询执行时间会更长。一个sql执行几十分钟是常有的事，有思路不能及时根据数据验证。</p>
 </li>
-<li><p>数据没有去燥</p>
+<li><p><strong>数据没有去燥</strong></p>
 <ol>
 <li>爬虫等恶意流量会造成商业指标抖动</li>
 <li>数据采集语义保证至少采集一条，会有数据重复采集的情况。</li>
 </ol>
 </li>
-<li><p>不同产品通用维度字段不统一</p>
+<li><p><strong>不同产品通用维度字段不统一</strong></p>
 </li>
 </ol>
 <p>针对以上痛点，我们着手开始搭建自己的数据仓库。</p>
-<p>##数据仓库目标</p>
-<ol>
-<li>支持多维分析，减少查询时间。</li>
-<li>数据去燥：组织不同数据来源，进行数据清洗，确保数据质量。</li>
-<li>数据打通：通用维度字段统一。</li>
+<h2 id="数据仓库目标"><a href="#数据仓库目标" class="headerlink" title="数据仓库目标"></a>数据仓库目标</h2><ol>
+<li><strong>支持多维分析，减少查询时间。</strong></li>
+<li><strong>数据去燥：组织不同数据来源，进行数据清洗，确保数据质量。</strong></li>
+<li><strong>数据打通：通用维度字段统一。</strong></li>
 </ol>
 <p>参考资料：</p>
 <p>【数据仓库工具箱(第3版) – 维度建模权威指南】</p>
@@ -435,8 +434,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -496,6 +504,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#数据仓库目标"><span class="nav-number">1.</span> <span class="nav-text">数据仓库目标</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
