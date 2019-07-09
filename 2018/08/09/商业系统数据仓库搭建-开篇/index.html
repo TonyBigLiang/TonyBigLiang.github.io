@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="商业系统,">
+  <meta name="keywords" content="商业系统,数据仓库,">
 
 
 
@@ -79,18 +79,20 @@
 
 
 
-<meta name="description" content="商业系统会有针对预算和余额的校验。拿我们的系统来说，在投放阶段和计费阶段会校验。当发现用户预算或金额不足以支付下一次点击/电话时（撞线），会下掉用户下的所有广告。 以上是业务背景，下面描述下遇到的一个大坑，以及填坑过程。 现象描述早9:30收到用户反馈，商业产品投放时报错，广告管理列表白屏。 排查发现商业系统服务不可用。表现为：接口请求超时，消息堆积。 紧急修复为保证线上服务可用，将线上流量切换到">
-<meta name="keywords" content="商业系统">
+<meta name="description" content="数据仓库是什么？wiki定义  数据仓库是用于报告和数据分析的系统，为企业决策提供数据支持。 数据仓库能力一个完善的数据仓库包括（不限于）：  集成多数据源。 通过数据标记、清洗，提高数据质量。 定义通用数据模型。 具有出色的查询性能。  数据仓库使用场景可借助于数据仓库的能力分析数据并做出决策。通常可用于以下场景：  生产策略调整 用户行为分析 运营分析  在以后的章节，我将与大家分享数据仓库中">
+<meta name="keywords" content="商业系统,数据仓库">
 <meta property="og:type" content="article">
-<meta property="og:title" content="一个用户如何打垮一个商业系统">
-<meta property="og:url" content="http://yoursite.com/2019/01/04/一个用户如何打垮一个商业系统/index.html">
+<meta property="og:title" content="商业系统数据仓库搭建--开篇">
+<meta property="og:url" content="http://yoursite.com/2018/08/09/商业系统数据仓库搭建-开篇/index.html">
 <meta property="og:site_name" content="Tony  Liang&#39;s  Blog">
-<meta property="og:description" content="商业系统会有针对预算和余额的校验。拿我们的系统来说，在投放阶段和计费阶段会校验。当发现用户预算或金额不足以支付下一次点击/电话时（撞线），会下掉用户下的所有广告。 以上是业务背景，下面描述下遇到的一个大坑，以及填坑过程。 现象描述早9:30收到用户反馈，商业产品投放时报错，广告管理列表白屏。 排查发现商业系统服务不可用。表现为：接口请求超时，消息堆积。 紧急修复为保证线上服务可用，将线上流量切换到">
+<meta property="og:description" content="数据仓库是什么？wiki定义  数据仓库是用于报告和数据分析的系统，为企业决策提供数据支持。 数据仓库能力一个完善的数据仓库包括（不限于）：  集成多数据源。 通过数据标记、清洗，提高数据质量。 定义通用数据模型。 具有出色的查询性能。  数据仓库使用场景可借助于数据仓库的能力分析数据并做出决策。通常可用于以下场景：  生产策略调整 用户行为分析 运营分析  在以后的章节，我将与大家分享数据仓库中">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-07-08T09:14:50.995Z">
+<meta property="og:image" content="http://yoursite.com/images/%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93%E5%AE%9A%E4%B9%89.png">
+<meta property="og:updated_time" content="2019-07-09T03:24:51.360Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="一个用户如何打垮一个商业系统">
-<meta name="twitter:description" content="商业系统会有针对预算和余额的校验。拿我们的系统来说，在投放阶段和计费阶段会校验。当发现用户预算或金额不足以支付下一次点击/电话时（撞线），会下掉用户下的所有广告。 以上是业务背景，下面描述下遇到的一个大坑，以及填坑过程。 现象描述早9:30收到用户反馈，商业产品投放时报错，广告管理列表白屏。 排查发现商业系统服务不可用。表现为：接口请求超时，消息堆积。 紧急修复为保证线上服务可用，将线上流量切换到">
+<meta name="twitter:title" content="商业系统数据仓库搭建--开篇">
+<meta name="twitter:description" content="数据仓库是什么？wiki定义  数据仓库是用于报告和数据分析的系统，为企业决策提供数据支持。 数据仓库能力一个完善的数据仓库包括（不限于）：  集成多数据源。 通过数据标记、清洗，提高数据质量。 定义通用数据模型。 具有出色的查询性能。  数据仓库使用场景可借助于数据仓库的能力分析数据并做出决策。通常可用于以下场景：  生产策略调整 用户行为分析 运营分析  在以后的章节，我将与大家分享数据仓库中">
+<meta name="twitter:image" content="http://yoursite.com/images/%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93%E5%AE%9A%E4%B9%89.png">
 
 
 
@@ -120,13 +122,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2019/01/04/一个用户如何打垮一个商业系统/">
+  <link rel="canonical" href="http://yoursite.com/2018/08/09/商业系统数据仓库搭建-开篇/">
 
 
 
 
 
-  <title>一个用户如何打垮一个商业系统 | Tony  Liang's  Blog</title>
+  <title>商业系统数据仓库搭建--开篇 | Tony  Liang's  Blog</title>
   
 
 
@@ -253,7 +255,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/01/04/一个用户如何打垮一个商业系统/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/08/09/商业系统数据仓库搭建-开篇/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Tony Liang">
@@ -270,7 +272,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">一个用户如何打垮一个商业系统</h1>
+          <h1 class="post-title" itemprop="name headline">商业系统数据仓库搭建--开篇</h1>
         
 
         <div class="post-meta">
@@ -282,8 +284,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-01-04T17:48:28+08:00">
-                2019-01-04
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-08-09T10:41:40+08:00">
+                2018-08-09
               </time>
             
 
@@ -305,8 +307,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/商业系统/" itemprop="url" rel="index">
-                    <span itemprop="name">商业系统</span>
+                  <a href="/categories/数据仓库/" itemprop="url" rel="index">
+                    <span itemprop="name">数据仓库</span>
                   </a>
                 </span>
 
@@ -342,33 +344,23 @@
       
 
       
-        <p>商业系统会有针对预算和余额的校验。拿我们的系统来说，在投放阶段和计费阶段会校验。当发现用户预算或金额不足以支付下一次点击/电话时（<strong>撞线</strong>），会下掉用户下的<strong>所有广告</strong>。</p>
-<p>以上是业务背景，下面描述下遇到的一个大坑，以及填坑过程。</p>
-<h2 id="现象描述"><a href="#现象描述" class="headerlink" title="现象描述"></a>现象描述</h2><p>早9:30收到用户反馈，商业产品投放时报错，广告管理列表白屏。</p>
-<p>排查发现商业系统服务不可用。表现为：接口请求超时，消息堆积。</p>
-<h2 id="紧急修复"><a href="#紧急修复" class="headerlink" title="紧急修复"></a>紧急修复</h2><p>为保证线上服务可用，将线上流量切换到备用集群上。观察后发现接口调用恢复正常，堆积消息开始消费。</p>
-<h2 id="问题排查"><a href="#问题排查" class="headerlink" title="问题排查"></a>问题排查</h2><ol>
-<li><p>从监控平台来看，8~10点期间，服务方耗时量，请求排队量，调用方超时量激增，猜测服务处理能力出现问题。</p>
-</li>
-<li><p>服务方访问量有三处突增，分别在8,9,10点，突增时刻服务方调用量和调用方请求量不匹配，平台同事解释是服务方的方法执行完毕后才会上报，同时给出了服务接口的执行时间，个别接口执行时间超过了<strong>两个小时</strong>，方法执行频次达<strong>上千次</strong>！</p>
-</li>
-<li><p>分析投放日志发现：撞线量同比扩大了10倍以上，达到百万级，共涉及到4位用户。继续分析发现，其中一位用户从零点开始有规律的在刷推广接口进行上下线操作。</p>
-</li>
-<li><p>根据以上现象review代码发现：</p>
-<ul>
-<li>此用户在此期间内预算已不足，会触发撞线<strong>下线用户下所有广告</strong>。</li>
-<li>受限于底层存储服务的处理能力，服务中加了限流操作，单节点处理能力在600/qps左右。广告量上万的用户，广告下线时间通常在几分钟之内。</li>
-<li>问题点在于：<strong>撞线操作没有判断是否正在进行中</strong>。在此期间用户不断的在请求投放接口，还会再次走到撞线。用户大约有30000广告，1000次请求，就会处理30000 * 1000 = 30 000 000条广告数据，流量被不断放大，导致rpc执行队列被长时间占用，无法释放，导致新的请求无法处理。最终体现在上游业务超时，导致服务整体不可用。</li>
-</ul>
-</li>
+        <h2 id="数据仓库是什么？"><a href="#数据仓库是什么？" class="headerlink" title="数据仓库是什么？"></a>数据仓库是什么？</h2><p><a href="<https://en.wikipedia.org/wiki/Data_warehouse">wiki</a>定义</p>
+<p><img src="/images/%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93%E5%AE%9A%E4%B9%89.png" alt></p>
+<p>数据仓库是用于报告和数据分析的系统，为企业决策提供数据支持。</p>
+<h2 id="数据仓库能力"><a href="#数据仓库能力" class="headerlink" title="数据仓库能力"></a>数据仓库能力</h2><p>一个完善的数据仓库包括（不限于）：</p>
+<ol>
+<li>集成多数据源。</li>
+<li>通过数据标记、清洗，提高数据质量。</li>
+<li>定义通用数据模型。</li>
+<li>具有出色的查询性能。</li>
 </ol>
-<h2 id="修复方案"><a href="#修复方案" class="headerlink" title="修复方案"></a>修复方案</h2><ol>
-<li>撞线等对广告的批量操作，增加<strong>分布式锁</strong>进行资源管控。防止接口被刷时进行的流量放大。</li>
-<li>接口实现中，类似撞线等耗时量较高的分支操作提交到<strong>异步事件总线</strong>进行处理，降低接口耗时。</li>
-<li>在投放入口增加防刷策略。</li>
+<h2 id="数据仓库使用场景"><a href="#数据仓库使用场景" class="headerlink" title="数据仓库使用场景"></a>数据仓库使用场景</h2><p>可借助于数据仓库的能力分析数据并做出决策。通常可用于以下场景：</p>
+<ol>
+<li>生产策略调整</li>
+<li>用户行为分析</li>
+<li>运营分析</li>
 </ol>
-<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>总有刁民想害朕~~开个玩笑。</p>
-<p>确实没有想到会有这样的case，生产情况再小的点也会因流量被不断放大。随着业务的不断拓展，系统也要不断的迭代去应对更复杂的场景。</p>
+<p>在以后的章节，我将与大家分享数据仓库中的一些基础知识，以及我们团队数据仓库的搭建过程。</p>
 
       
     </div>
@@ -388,6 +380,8 @@
           
             <a href="/tags/商业系统/" rel="tag"># 商业系统</a>
           
+            <a href="/tags/数据仓库/" rel="tag"># 数据仓库</a>
+          
         </div>
       
 
@@ -399,18 +393,14 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/08/11/商业系统数据仓库搭建(二)/" rel="next" title="商业系统数据仓库搭建(二)">
-                <i class="fa fa-chevron-left"></i> 商业系统数据仓库搭建(二)
-              </a>
-            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2019/08/10/商业系统数据仓库搭建(一)/" rel="prev" title="商业系统数据仓库搭建(一)">
-                商业系统数据仓库搭建(一) <i class="fa fa-chevron-right"></i>
+              <a href="/2018/08/11/商业系统数据仓库搭建(二)/" rel="prev" title="商业系统数据仓库搭建(二)">
+                商业系统数据仓库搭建(二) <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -543,7 +533,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#现象描述"><span class="nav-number">1.</span> <span class="nav-text">现象描述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#紧急修复"><span class="nav-number">2.</span> <span class="nav-text">紧急修复</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#问题排查"><span class="nav-number">3.</span> <span class="nav-text">问题排查</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#修复方案"><span class="nav-number">4.</span> <span class="nav-text">修复方案</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#总结"><span class="nav-number">5.</span> <span class="nav-text">总结</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#数据仓库是什么？"><span class="nav-number">1.</span> <span class="nav-text">数据仓库是什么？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数据仓库能力"><span class="nav-number">2.</span> <span class="nav-text">数据仓库能力</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数据仓库使用场景"><span class="nav-number">3.</span> <span class="nav-text">数据仓库使用场景</span></a></li></ol></div>
             
 
           </div>

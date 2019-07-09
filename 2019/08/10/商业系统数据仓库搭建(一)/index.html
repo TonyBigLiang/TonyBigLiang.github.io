@@ -79,20 +79,20 @@
 
 
 
-<meta name="description" content="1.为什么要做数据分层？ 清晰数据结构：每一个数据分层都有它的作用域，这样我们在使用表的时候能更方便地定位和理解。 数据血缘追踪：简单来讲可以这样理解，我们最终给业务诚信的是一能直接使用的张业务表，但是它的来源有很多，如果有一张来源表出问题了，我们希望能够快速准确地定位到问题，并清楚它的危害范围。 减少重复开发：规范数据分层，开发一些通用的中间层数据，能够减少极大的重复计算。 把复杂问题简单化。讲">
+<meta name="description" content="在商业系统的迭代过程中，业务策略/推荐策略可能导致CTR/PVR等商业指标数据的波动，在分析数据排查问题时逐渐暴露了数据层面遇到的痛点。 数据分析痛点1.SQL执行耗时长检索日志每天请求在亿级别，如果有关联查询执行时间会更长。一个sql执行几十分钟是常有的事，有思路不能及时根据数据验证。 2.不同产品通用维度字段不统一3.数据没有去燥 爬虫等恶意流量会造成商业指标抖动 数据采集工具语义保证至少采集">
 <meta name="keywords" content="商业系统,数据仓库">
 <meta property="og:type" content="article">
-<meta property="og:title" content="商业系统数据仓库搭建(二)">
-<meta property="og:url" content="http://yoursite.com/2019/07/08/商业系统数据仓库搭建(二)/index.html">
+<meta property="og:title" content="商业系统数据仓库搭建(一)">
+<meta property="og:url" content="http://yoursite.com/2019/08/10/商业系统数据仓库搭建(一)/index.html">
 <meta property="og:site_name" content="Tony  Liang&#39;s  Blog">
-<meta property="og:description" content="1.为什么要做数据分层？ 清晰数据结构：每一个数据分层都有它的作用域，这样我们在使用表的时候能更方便地定位和理解。 数据血缘追踪：简单来讲可以这样理解，我们最终给业务诚信的是一能直接使用的张业务表，但是它的来源有很多，如果有一张来源表出问题了，我们希望能够快速准确地定位到问题，并清楚它的危害范围。 减少重复开发：规范数据分层，开发一些通用的中间层数据，能够减少极大的重复计算。 把复杂问题简单化。讲">
+<meta property="og:description" content="在商业系统的迭代过程中，业务策略/推荐策略可能导致CTR/PVR等商业指标数据的波动，在分析数据排查问题时逐渐暴露了数据层面遇到的痛点。 数据分析痛点1.SQL执行耗时长检索日志每天请求在亿级别，如果有关联查询执行时间会更长。一个sql执行几十分钟是常有的事，有思路不能及时根据数据验证。 2.不同产品通用维度字段不统一3.数据没有去燥 爬虫等恶意流量会造成商业指标抖动 数据采集工具语义保证至少采集">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://yoursite.com/images/%E6%95%B0%E6%8D%AE%E5%88%86%E5%B1%82.png">
-<meta property="og:updated_time" content="2019-07-08T10:28:18.223Z">
+<meta property="og:image" content="http://yoursite.com/images/%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93%E6%9E%B6%E6%9E%84%E5%9B%BE.png">
+<meta property="og:updated_time" content="2019-07-09T03:42:05.665Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="商业系统数据仓库搭建(二)">
-<meta name="twitter:description" content="1.为什么要做数据分层？ 清晰数据结构：每一个数据分层都有它的作用域，这样我们在使用表的时候能更方便地定位和理解。 数据血缘追踪：简单来讲可以这样理解，我们最终给业务诚信的是一能直接使用的张业务表，但是它的来源有很多，如果有一张来源表出问题了，我们希望能够快速准确地定位到问题，并清楚它的危害范围。 减少重复开发：规范数据分层，开发一些通用的中间层数据，能够减少极大的重复计算。 把复杂问题简单化。讲">
-<meta name="twitter:image" content="http://yoursite.com/images/%E6%95%B0%E6%8D%AE%E5%88%86%E5%B1%82.png">
+<meta name="twitter:title" content="商业系统数据仓库搭建(一)">
+<meta name="twitter:description" content="在商业系统的迭代过程中，业务策略/推荐策略可能导致CTR/PVR等商业指标数据的波动，在分析数据排查问题时逐渐暴露了数据层面遇到的痛点。 数据分析痛点1.SQL执行耗时长检索日志每天请求在亿级别，如果有关联查询执行时间会更长。一个sql执行几十分钟是常有的事，有思路不能及时根据数据验证。 2.不同产品通用维度字段不统一3.数据没有去燥 爬虫等恶意流量会造成商业指标抖动 数据采集工具语义保证至少采集">
+<meta name="twitter:image" content="http://yoursite.com/images/%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93%E6%9E%B6%E6%9E%84%E5%9B%BE.png">
 
 
 
@@ -122,13 +122,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2019/07/08/商业系统数据仓库搭建(二)/">
+  <link rel="canonical" href="http://yoursite.com/2019/08/10/商业系统数据仓库搭建(一)/">
 
 
 
 
 
-  <title>商业系统数据仓库搭建(二) | Tony  Liang's  Blog</title>
+  <title>商业系统数据仓库搭建(一) | Tony  Liang's  Blog</title>
   
 
 
@@ -255,7 +255,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/07/08/商业系统数据仓库搭建(二)/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/10/商业系统数据仓库搭建(一)/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Tony Liang">
@@ -272,7 +272,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">商业系统数据仓库搭建(二)</h1>
+          <h1 class="post-title" itemprop="name headline">商业系统数据仓库搭建(一)</h1>
         
 
         <div class="post-meta">
@@ -284,8 +284,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-07-08T15:31:15+08:00">
-                2019-07-08
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-08-10T14:07:31+08:00">
+                2019-08-10
               </time>
             
 
@@ -294,6 +294,28 @@
             
           </span>
 
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/数据仓库/" itemprop="url" rel="index">
+                    <span itemprop="name">数据仓库</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -322,32 +344,24 @@
       
 
       
-        <h2 id="1-为什么要做数据分层？"><a href="#1-为什么要做数据分层？" class="headerlink" title="1.为什么要做数据分层？"></a>1.为什么要做数据分层？</h2><ol>
-<li>清晰数据结构：每一个数据分层都有它的作用域，这样我们在使用表的时候能更方便地定位和理解。</li>
-<li>数据血缘追踪：简单来讲可以这样理解，我们最终给业务诚信的是一能直接使用的张业务表，但是它的来源有很多，如果有一张来源表出问题了，我们希望能够快速准确地定位到问题，并清楚它的危害范围。</li>
-<li>减少重复开发：规范数据分层，开发一些通用的中间层数据，能够减少极大的重复计算。</li>
-<li>把复杂问题简单化。讲一个复杂的任务分解成多个步骤来完成，每一层只处理单一的步骤，比较简单和容易理解。而且便于维护数据的准确性，当数据出现问题之后，可以不用修复所有的数据，只需要从有问题的步骤开始修复。</li>
-<li>屏蔽原始数据的异常。</li>
-<li>屏蔽业务的影响，不必改一次业务就需要重新接入数据。</li>
-</ol>
-<h2 id="2-如何分层"><a href="#2-如何分层" class="headerlink" title="2.如何分层"></a>2.如何分层</h2><p><img src="/images/%E6%95%B0%E6%8D%AE%E5%88%86%E5%B1%82.png" alt></p>
-<h3 id="1-DS层-–-Data-Source"><a href="#1-DS层-–-Data-Source" class="headerlink" title="1)DS层 – Data Source"></a>1)DS层 – Data Source</h3><p>DS层存放的是原始数据，对应业务日志。</p>
-<h3 id="2-DW层-–-Data-Warehouse"><a href="#2-DW层-–-Data-Warehouse" class="headerlink" title="2)DW层 – Data Warehouse"></a>2)DW层 – Data Warehouse</h3><p>DW层存放的是经过DS层清洗后的日志，包括爬虫识别，数据去重，通用维度统一等。</p>
-<h3 id="3-DM层-–-Data-Market"><a href="#3-DM层-–-Data-Market" class="headerlink" title="3)DM层 – Data Market"></a>3)DM层 – Data Market</h3><p>DM层存放两部分数据。1是按照关注主题的维度，经过DW层轻度聚合后的数据，2是在1的基础上聚合的用于多维分析的大宽表数据。</p>
-<h3 id="4-DA层-–-Data-Application"><a href="#4-DA层-–-Data-Application" class="headerlink" title="4)DA层 – Data Application"></a>4)DA层 – Data Application</h3><p>DA层存放的是提供给数据产品和数据分析使用的数据，一般会存放在es、mysql等系统中供线上系统使用。</p>
-<h2 id="3-DM层主要逻辑"><a href="#3-DM层主要逻辑" class="headerlink" title="3.DM层主要逻辑"></a>3.DM层主要逻辑</h2><p>对主题关注的维度建模，轻度聚合DW层的数据。这个阶段是为了最后的大宽表做准备。此前应该准备好关注的通用维度以及指标。</p>
-<ul>
-<li><p>维度例如：商业产品类型，检索终端，检索来源，数据埋点，时间区间等。</p>
-</li>
-<li><p>指标例如：pv，adpv，ctr，cpm，消费现金等。</p>
-</li>
+        <p>在商业系统的迭代过程中，业务策略/推荐策略可能导致CTR/PVR等商业指标数据的波动，在分析数据排查问题时逐渐暴露了数据层面遇到的痛点。</p>
+<h2 id="数据分析痛点"><a href="#数据分析痛点" class="headerlink" title="数据分析痛点"></a>数据分析痛点</h2><h3 id="1-SQL执行耗时长"><a href="#1-SQL执行耗时长" class="headerlink" title="1.SQL执行耗时长"></a>1.SQL执行耗时长</h3><p>检索日志每天请求在亿级别，如果有关联查询执行时间会更长。一个sql执行几十分钟是常有的事，有思路不能及时根据数据验证。</p>
+<h3 id="2-不同产品通用维度字段不统一"><a href="#2-不同产品通用维度字段不统一" class="headerlink" title="2.不同产品通用维度字段不统一"></a>2.不同产品通用维度字段不统一</h3><h3 id="3-数据没有去燥"><a href="#3-数据没有去燥" class="headerlink" title="3.数据没有去燥"></a>3.数据没有去燥</h3><ul>
+<li>爬虫等恶意流量会造成商业指标抖动</li>
+<li>数据采集工具语义保证至少采集一条，会有数据重复采集的情况。</li>
 </ul>
-<p>有一个细节需要注意，如果需要统计分时数据，维度中还应有时间字段。我们目前支持15分钟内粒度的查询。时间的聚合可以用如下方法处理，各位看官体验下，个人感觉很巧妙。</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">from_unixtime(cast(timestamp / 900 as int) * 900, 'HH:mm')</span><br></pre></td></tr></table></figure>
-
-<p>参考资料：</p>
-<p><a href="https://en.wikipedia.org/wiki/Data_warehouse#Information_storage" target="_blank" rel="noopener">Data warehouse–wikipedia</a></p>
-<p><a href="https://zhuanlan.zhihu.com/p/27395332" target="_blank" rel="noopener">大数据环境下该如何优雅地设计数据分层</a></p>
+<p>数据仓库就是为解决以上痛点而生的。所以我们开始着手搭建自己的数据仓库。除以上需要数仓解决的问题外，还需要支持数据实时分析的场景，可以在需求上线前后及时的观察到不同维度的数据变化。</p>
+<h2 id="数据仓库整体架构"><a href="#数据仓库整体架构" class="headerlink" title="数据仓库整体架构"></a>数据仓库整体架构</h2><p><img src="/images/%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93%E6%9E%B6%E6%9E%84%E5%9B%BE.png" alt></p>
+<p>结合以上需求场景，数仓架构包含三大部分</p>
+<ol>
+<li><p><strong>数据采集</strong></p>
+</li>
+<li><p><strong>数据分层(包含ETL)</strong></p>
+</li>
+<li><p><strong>实时，离线多维分析平台</strong></p>
+</li>
+</ol>
+<p>接来下介绍下数据采集，以及数据分层的方案。</p>
 
       
     </div>
@@ -380,8 +394,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/01/12/商业系统数据仓库搭建(一)/" rel="next" title="商业系统数据仓库搭建(一)">
-                <i class="fa fa-chevron-left"></i> 商业系统数据仓库搭建(一)
+              <a href="/2019/01/04/一个用户如何打垮一个商业系统/" rel="next" title="一个用户如何打垮一个商业系统">
+                <i class="fa fa-chevron-left"></i> 一个用户如何打垮一个商业系统
               </a>
             
           </div>
@@ -465,7 +479,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-count">4</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -476,7 +490,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-count">2</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -520,7 +534,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-为什么要做数据分层？"><span class="nav-number">1.</span> <span class="nav-text">1.为什么要做数据分层？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-如何分层"><span class="nav-number">2.</span> <span class="nav-text">2.如何分层</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-DS层-–-Data-Source"><span class="nav-number">2.1.</span> <span class="nav-text">1)DS层 – Data Source</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-DW层-–-Data-Warehouse"><span class="nav-number">2.2.</span> <span class="nav-text">2)DW层 – Data Warehouse</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-DM层-–-Data-Market"><span class="nav-number">2.3.</span> <span class="nav-text">3)DM层 – Data Market</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-DA层-–-Data-Application"><span class="nav-number">2.4.</span> <span class="nav-text">4)DA层 – Data Application</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-DM层主要逻辑"><span class="nav-number">3.</span> <span class="nav-text">3.DM层主要逻辑</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#数据分析痛点"><span class="nav-number">1.</span> <span class="nav-text">数据分析痛点</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-SQL执行耗时长"><span class="nav-number">1.1.</span> <span class="nav-text">1.SQL执行耗时长</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-不同产品通用维度字段不统一"><span class="nav-number">1.2.</span> <span class="nav-text">2.不同产品通用维度字段不统一</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-数据没有去燥"><span class="nav-number">1.3.</span> <span class="nav-text">3.数据没有去燥</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数据仓库整体架构"><span class="nav-number">2.</span> <span class="nav-text">数据仓库整体架构</span></a></li></ol></div>
             
 
           </div>
