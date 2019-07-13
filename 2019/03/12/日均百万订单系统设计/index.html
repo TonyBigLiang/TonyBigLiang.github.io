@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="本篇文章不是讲述分库分表的实现方案，如寻找解决方案可直接拖到底部查看参考链接，后续也会出一些分库分表的文章，敬请期待。  cpc商业产品已经平稳运行了一段时间了，在此记录下项目中存储&amp;amp;对账的落地方案。 存储cpc产品，定价较低，预估每天的订单量在200万左右，一个月6000万左右，一年7亿的量。单表存储肯定扛不住，所以我们准备做分表方案，为此调研了分表的实现方案以及开源中间件。在调研期间">
+<meta name="description" content="本篇文章不是讲述分库分表的实现方案，如寻找解决方案可直接拖到底部查看参考链接，后续也会出一些分库分表的文章，敬请期待。  cpc商业产品已经平稳运行了一段时间了，在此记录下项目中存储&amp;amp;报表的落地方案。 存储cpc产品，定价较低，预估每天的订单量在200万左右，一个月6000万左右，一年7亿的量。单表存储肯定扛不住，所以我们准备做分表方案，为此调研了分表的实现方案以及开源中间件。在调研期间">
 <meta name="keywords" content="订单系统,mysql,对账,分库分表,cpc">
 <meta property="og:type" content="article">
-<meta property="og:title" content="日均百万订单的商业系统-存储&amp;对账设计">
+<meta property="og:title" content="日均百万订单的商业系统-存储&amp;报表设计">
 <meta property="og:url" content="http://yoursite.com/2019/03/12/日均百万订单系统设计/index.html">
 <meta property="og:site_name" content="Tony  Liang&#39;s  Blog">
-<meta property="og:description" content="本篇文章不是讲述分库分表的实现方案，如寻找解决方案可直接拖到底部查看参考链接，后续也会出一些分库分表的文章，敬请期待。  cpc商业产品已经平稳运行了一段时间了，在此记录下项目中存储&amp;amp;对账的落地方案。 存储cpc产品，定价较低，预估每天的订单量在200万左右，一个月6000万左右，一年7亿的量。单表存储肯定扛不住，所以我们准备做分表方案，为此调研了分表的实现方案以及开源中间件。在调研期间">
+<meta property="og:description" content="本篇文章不是讲述分库分表的实现方案，如寻找解决方案可直接拖到底部查看参考链接，后续也会出一些分库分表的文章，敬请期待。  cpc商业产品已经平稳运行了一段时间了，在此记录下项目中存储&amp;amp;报表的落地方案。 存储cpc产品，定价较低，预估每天的订单量在200万左右，一个月6000万左右，一年7亿的量。单表存储肯定扛不住，所以我们准备做分表方案，为此调研了分表的实现方案以及开源中间件。在调研期间">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-07-12T09:31:33.277Z">
+<meta property="og:updated_time" content="2019-07-13T04:38:57.105Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="日均百万订单的商业系统-存储&amp;对账设计">
-<meta name="twitter:description" content="本篇文章不是讲述分库分表的实现方案，如寻找解决方案可直接拖到底部查看参考链接，后续也会出一些分库分表的文章，敬请期待。  cpc商业产品已经平稳运行了一段时间了，在此记录下项目中存储&amp;amp;对账的落地方案。 存储cpc产品，定价较低，预估每天的订单量在200万左右，一个月6000万左右，一年7亿的量。单表存储肯定扛不住，所以我们准备做分表方案，为此调研了分表的实现方案以及开源中间件。在调研期间">
+<meta name="twitter:title" content="日均百万订单的商业系统-存储&amp;报表设计">
+<meta name="twitter:description" content="本篇文章不是讲述分库分表的实现方案，如寻找解决方案可直接拖到底部查看参考链接，后续也会出一些分库分表的文章，敬请期待。  cpc商业产品已经平稳运行了一段时间了，在此记录下项目中存储&amp;amp;报表的落地方案。 存储cpc产品，定价较低，预估每天的订单量在200万左右，一个月6000万左右，一年7亿的量。单表存储肯定扛不住，所以我们准备做分表方案，为此调研了分表的实现方案以及开源中间件。在调研期间">
 
 
 
@@ -126,7 +126,7 @@
 
 
 
-  <title>日均百万订单的商业系统-存储&对账设计 | Tony  Liang's  Blog</title>
+  <title>日均百万订单的商业系统-存储&报表设计 | Tony  Liang's  Blog</title>
   
 
 
@@ -270,7 +270,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">日均百万订单的商业系统-存储&对账设计</h1>
+          <h1 class="post-title" itemprop="name headline">日均百万订单的商业系统-存储&报表设计</h1>
         
 
         <div class="post-meta">
@@ -345,7 +345,7 @@
         <blockquote>
 <p>本篇文章不是讲述分库分表的实现方案，如寻找解决方案可直接拖到底部查看参考链接，后续也会出一些分库分表的文章，敬请期待。</p>
 </blockquote>
-<p>cpc商业产品已经平稳运行了一段时间了，在此记录下项目中存储&amp;对账的落地方案。</p>
+<p>cpc商业产品已经平稳运行了一段时间了，在此记录下项目中存储&amp;报表的落地方案。</p>
 <h2 id="存储"><a href="#存储" class="headerlink" title="存储"></a>存储</h2><p>cpc产品，定价较低，预估每天的订单量在200万左右，一个月6000万左右，一年7亿的量。单表存储肯定扛不住，所以我们准备做分表方案，为此调研了分表的实现方案以及开源中间件。在调研期间发现几个痛点是必须要处理的：</p>
 <ol>
 <li><p><strong>分表方式：hash、range、还是自定义路由</strong></p>
@@ -355,25 +355,28 @@
 <p>单表5000万的量，一年的存储需要14张表，最低要求保证几年的量。</p>
 </li>
 <li><p><strong>跨节点count、groupBy等聚合函数问题</strong></p>
-<p>单表数量很大，能否快速响应请求</p>
+<p>单表数量很大，能否快速响应请求。</p>
 </li>
-<li><p><strong>单表数量很大，能否快速响应请求</strong></p>
-<p>单表数量很大，能否快速响应请求</p>
+<li><p><strong>分页查询，深度查询性能问题</strong></p>
+<p>多表扫描后，数据聚合，能否快速响应请求。</p>
 </li>
 <li><p><strong>分布式id</strong></p>
 <p>成本还好，开源Twitter的snowflake，也可以自研。</p>
 </li>
 </ol>
 <p>可以发现，引入分表方案需要的成本很大，做到大而全的话很难保证项目如期上线。单表上线后续的数据迁移可能还会遇到别的问题。</p>
-<p>我们换了个思路，从产品层面看下应用订单数据的场景。cpc产品，按照点击计费，对用户披露的计费数据不会是每一次的点击，而是聚合到广告维度的。除广告维度外，也会纰漏广告主每日的消费情况。梳理下用到订单数据的场景：</p>
+<p>我们换了个思路，从产品层面看下应用订单数据的场景。cpc产品，按照点击计费，对用户披露的计费数据不会是每一次的点击，而是聚合到广告维度的。除广告维度外，也会披露广告主每日的消费情况。梳理下用到订单数据的场景：</p>
 <ol>
 <li><strong>当日广告消费数据披露</strong></li>
 <li><strong>当日广告主消费数据披露</strong></li>
 <li><strong>历史广告消费数据披露</strong></li>
 <li><strong>历史广告主消费数据披露</strong></li>
 </ol>
-<p>可以看到，如果用分表方案，四种场景都涉及到groupBy以及分页的操作，很考验机器性能。暴露出的另一个问题，如果占用mysql资源严重，是否会对其他DB操作造成影响。从架构层面讲，把这种计算密集的操作交给mysql来处理是不合理的，需要把这种统计任务从mysql中抽离出来。那么针对1、2披露的当日数据，可以在计费之后把消费金额同步到redis、memcache等缓存中。针对3、4纰漏的历史数据，可以将订单数据上报到hdfs中，然后用mapreduce分别计算广告和广告主维度的数据，然后写入持久化存储中，供系统调用。采用这种方案后，业务系统对订单系统是没有查询依赖的，仅仅是写入订单数据。mysql中也不需要存储历史订单信息，都已经上报到hdfs中了。线上仅保留近一周数据即可。</p>
-<h2 id="对账"><a href="#对账" class="headerlink" title="对账"></a>对账</h2><p>参考资料：</p>
+<p>可以看到，如果用分表方案，四种场景都涉及到groupBy以及分页的操作，很考验机器性能。暴露出的另一个问题，如果占用mysql资源严重，是否会对其他DB操作造成影响。从架构层面讲，把这种计算密集的操作交给mysql来处理是不合理的，需要把这种统计任务从mysql中抽离出来。那么针对1、2披露的当日数据，可以在计费之后把消费金额同步到redis、memcache等缓存中。针对3、4披露的历史数据，可以将订单数据上报到hdfs中，然后用mapreduce分别计算广告和广告主维度的数据，然后写入持久化存储中，供系统调用。采用这种方案后，业务系统对订单系统是没有查询依赖的，仅仅是写入订单数据。mysql中也不需要存储历史订单信息，都已经上报到hdfs中了。目前线上仅保留近一周的订单数据，单表存储已经够了。</p>
+<h2 id="报表"><a href="#报表" class="headerlink" title="报表"></a>报表</h2><p>初期给用户披露的离线数据，是放在缓存中的数据。遇到缓存服务超时时就会和订单中心披露数据不一致，经常收到差了几毛钱的反馈。在做改造时，订单数据源一定要和mysql中的数据是一致的，直接在线上用mysql统计又不合理。最终我们采用的方案是:将mysql订单数据同步到hdfs，用mapreduce分别统计出广告和广告主纬度的消费数据，写入持久化存储中，供业务系统调用。保证数据最终一致。</p>
+<hr>
+<p>老话说的好，脱离了业务的架构都是耍流氓。如果没有结合业务，上来就分库分表，开发成本，硬件成本都会显著增大。总结下来，对于大数据量mysql中的统计操作，实时统计可以采用业务系统中写入缓存追加的方式，离线统计可以采用mapreduce写入持久化存储的方式，避免在mysql中进行大数据量的统计操作。</p>
+<p>参考资料：</p>
 <p><a href="https://tech.meituan.com/2016/11/18/dianping-order-db-sharding.html" target="_blank" rel="noopener">大众点评订单系统分库分表实践</a></p>
 <p><a href="http://database.51cto.com/art/201904/595550.htm" target="_blank" rel="noopener">分库分表？如何做到永不迁移数据和避免热点？</a></p>
 <p><a href="https://yq.aliyun.com/articles/622764" target="_blank" rel="noopener">从分库分表后遗症，总结数据库表拆分策略</a></p>
@@ -556,7 +559,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#存储"><span class="nav-number">1.</span> <span class="nav-text">存储</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#对账"><span class="nav-number">2.</span> <span class="nav-text">对账</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#存储"><span class="nav-number">1.</span> <span class="nav-text">存储</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#报表"><span class="nav-number">2.</span> <span class="nav-text">报表</span></a></li></ol></div>
             
 
           </div>
