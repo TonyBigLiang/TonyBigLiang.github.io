@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="商业系统,数据仓库,">
+  <meta name="keywords" content="mockito,">
 
 
 
@@ -79,21 +79,18 @@
 
 
 
-<meta name="description" content="多维分析平台数据仓库是一个数据库，并不具备多维分析能力，但是数仓的设计使数据分析更容易，通常是由事实表和维度表聚合后的数据。经过调研，我们初期选择Kylin作为离线OLAP引擎，Druid作为实时OLAP引擎。 OLAPOLAP是一种软件技术，它使分析人员能够迅速、一致、交互地从各个方面观察信息，以达到深入理解数据的目的。它具有FASMI(Fast Analysis of Shared Multi">
-<meta name="keywords" content="商业系统,数据仓库">
+<meta name="description" content="本章将介绍mockito基础注解的使用。 启用mockito注解测试类上添加RunWith(MockitoJUnitRunner.class) 1234@RunWith(MockitoJUnitRunner.class)public class MockitoAnnotationTest &amp;#123;    ...&amp;#125;  也可以通过代码启动 1234@Beforepublic void i">
+<meta name="keywords" content="mockito">
 <meta property="og:type" content="article">
-<meta property="og:title" content="商业系统数据仓库搭建(三)">
-<meta property="og:url" content="http://yoursite.com/2018/08/12/商业系统数据仓库搭建(三)/index.html">
+<meta property="og:title" content="mockito--基本使用">
+<meta property="og:url" content="http://yoursite.com/2019/07/19/mockito-基本使用/index.html">
 <meta property="og:site_name" content="Tony  Liang&#39;s  Blog">
-<meta property="og:description" content="多维分析平台数据仓库是一个数据库，并不具备多维分析能力，但是数仓的设计使数据分析更容易，通常是由事实表和维度表聚合后的数据。经过调研，我们初期选择Kylin作为离线OLAP引擎，Druid作为实时OLAP引擎。 OLAPOLAP是一种软件技术，它使分析人员能够迅速、一致、交互地从各个方面观察信息，以达到深入理解数据的目的。它具有FASMI(Fast Analysis of Shared Multi">
+<meta property="og:description" content="本章将介绍mockito基础注解的使用。 启用mockito注解测试类上添加RunWith(MockitoJUnitRunner.class) 1234@RunWith(MockitoJUnitRunner.class)public class MockitoAnnotationTest &amp;#123;    ...&amp;#125;  也可以通过代码启动 1234@Beforepublic void i">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://yoursite.com/images/rollup.jpg">
-<meta property="og:image" content="http://yoursite.com/images/drill_down.jpg">
-<meta property="og:updated_time" content="2019-07-12T07:39:51.839Z">
+<meta property="og:updated_time" content="2019-07-19T08:28:48.941Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="商业系统数据仓库搭建(三)">
-<meta name="twitter:description" content="多维分析平台数据仓库是一个数据库，并不具备多维分析能力，但是数仓的设计使数据分析更容易，通常是由事实表和维度表聚合后的数据。经过调研，我们初期选择Kylin作为离线OLAP引擎，Druid作为实时OLAP引擎。 OLAPOLAP是一种软件技术，它使分析人员能够迅速、一致、交互地从各个方面观察信息，以达到深入理解数据的目的。它具有FASMI(Fast Analysis of Shared Multi">
-<meta name="twitter:image" content="http://yoursite.com/images/rollup.jpg">
+<meta name="twitter:title" content="mockito--基本使用">
+<meta name="twitter:description" content="本章将介绍mockito基础注解的使用。 启用mockito注解测试类上添加RunWith(MockitoJUnitRunner.class) 1234@RunWith(MockitoJUnitRunner.class)public class MockitoAnnotationTest &amp;#123;    ...&amp;#125;  也可以通过代码启动 1234@Beforepublic void i">
 
 
 
@@ -123,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/08/12/商业系统数据仓库搭建(三)/">
+  <link rel="canonical" href="http://yoursite.com/2019/07/19/mockito-基本使用/">
 
 
 
 
 
-  <title>商业系统数据仓库搭建(三) | Tony  Liang's  Blog</title>
+  <title>mockito--基本使用 | Tony  Liang's  Blog</title>
   
 
 
@@ -256,7 +253,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/08/12/商业系统数据仓库搭建(三)/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/07/19/mockito-基本使用/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Tony Liang">
@@ -273,7 +270,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">商业系统数据仓库搭建(三)</h1>
+          <h1 class="post-title" itemprop="name headline">mockito--基本使用</h1>
         
 
         <div class="post-meta">
@@ -285,8 +282,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-08-12T14:10:37+08:00">
-                2018-08-12
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-07-19T16:11:12+08:00">
+                2019-07-19
               </time>
             
 
@@ -308,8 +305,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/数据仓库/" itemprop="url" rel="index">
-                    <span itemprop="name">数据仓库</span>
+                  <a href="/categories/mockito/" itemprop="url" rel="index">
+                    <span itemprop="name">mockito</span>
                   </a>
                 </span>
 
@@ -345,14 +342,21 @@
       
 
       
-        <h2 id="多维分析平台"><a href="#多维分析平台" class="headerlink" title="多维分析平台"></a>多维分析平台</h2><p>数据仓库是一个数据库，并不具备多维分析能力，但是数仓的设计使数据分析更容易，通常是由事实表和维度表聚合后的数据。经过调研，我们初期选择<strong>Kylin</strong>作为离线OLAP引擎，<strong>Druid</strong>作为实时OLAP引擎。</p>
-<h3 id="OLAP"><a href="#OLAP" class="headerlink" title="OLAP"></a>OLAP</h3><p>OLAP是一种软件技术，它使分析人员能够迅速、一致、交互地从各个方面观察信息，以达到深入理解数据的目的。它具有FASMI(Fast Analysis of Shared Multidimensional Information)，即共享多维信息的快速分析的特征。其中F是快速性(Fast)，指系统能在数秒内对用户的多数分析要求做出反应；A是可分析性(Analysis)，指用户无需编程就可以定义新的专门计算，将其作为分析的一部 分，并以用户所希望的方式给出报告；M是多维性(Multi—dimensional)，指提供对数据分析的多维视图和分析；I是信息性(Information)，指能及时获得信息，并且管理大容量信息。</p>
-<h3 id="OLAP常用操作"><a href="#OLAP常用操作" class="headerlink" title="OLAP常用操作"></a>OLAP常用操作</h3><h4 id="Roll-up-上卷"><a href="#Roll-up-上卷" class="headerlink" title="Roll-up(上卷)"></a>Roll-up(上卷)</h4><p>很好理解，比如统计维度从城市上升至国家。</p>
-<p><img src="/images/rollup.jpg" alt></p>
-<h4 id="Drill-down-下钻"><a href="#Drill-down-下钻" class="headerlink" title="Drill-down(下钻)"></a>Drill-down(下钻)</h4><p>下钻是上卷的相反操作，统计维度细化。</p>
-<p><img src="/images/drill_down.jpg" alt></p>
-<p><strong>整个多维分析的过程，都是在围绕这两个名词。</strong></p>
+        <p>本章将介绍mockito基础注解的使用。</p>
+<h2 id="启用mockito注解"><a href="#启用mockito注解" class="headerlink" title="启用mockito注解"></a>启用mockito注解</h2><p>测试类上添加RunWith(MockitoJUnitRunner.class)</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@RunWith</span>(MockitoJUnitRunner.class)</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MockitoAnnotationTest</span> </span>&#123;</span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
+<p>也可以通过代码启动</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Before</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">init</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    MockitoAnnotations.initMocks(<span class="keyword">this</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="Mock"><a href="#Mock" class="headerlink" title="@Mock"></a>@Mock</h2><p>@mock是mockito中最常用的注解，我们可以用@mock注解替代手动创建实例。</p>
+<p>不使用注解mock <em>ArrayList</em></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">List mockList = Mockito.mock(ArrayList.class);</span><br></pre></td></tr></table></figure>
+
+<p>使用注解mock <em>ArrayList</em></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Mock</span></span><br><span class="line">List&lt;String&gt; mockedList;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">mockInjected</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    mockedList.add(<span class="string">"one"</span>);</span><br><span class="line">    Mockito.verify(mockedList).add(<span class="string">"one"</span>);</span><br><span class="line">    assertEquals(<span class="number">0</span>, mockedList.size());</span><br><span class="line"> </span><br><span class="line">    Mockito.when(mockedList.size()).thenReturn(<span class="number">100</span>);</span><br><span class="line">    assertEquals(<span class="number">100</span>, mockedList.size());</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="SPY"><a href="#SPY" class="headerlink" title="SPY"></a>SPY</h2>
       
     </div>
     
@@ -369,9 +373,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/商业系统/" rel="tag"># 商业系统</a>
-          
-            <a href="/tags/数据仓库/" rel="tag"># 数据仓库</a>
+            <a href="/tags/mockito/" rel="tag"># mockito</a>
           
         </div>
       
@@ -384,8 +386,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/08/11/商业系统数据仓库搭建(二)/" rel="next" title="商业系统数据仓库搭建(二)">
-                <i class="fa fa-chevron-left"></i> 商业系统数据仓库搭建(二)
+              <a href="/2019/03/12/日均百万订单系统设计/" rel="next" title="日均百万订单的商业系统-存储&报表设计">
+                <i class="fa fa-chevron-left"></i> 日均百万订单的商业系统-存储&报表设计
               </a>
             
           </div>
@@ -393,10 +395,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/01/04/一个用户如何打垮一个商业系统/" rel="prev" title="一个用户如何打垮一个商业系统">
-                一个用户如何打垮一个商业系统 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -528,7 +526,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#多维分析平台"><span class="nav-number">1.</span> <span class="nav-text">多维分析平台</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#OLAP"><span class="nav-number">1.1.</span> <span class="nav-text">OLAP</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#OLAP常用操作"><span class="nav-number">1.2.</span> <span class="nav-text">OLAP常用操作</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Roll-up-上卷"><span class="nav-number">1.2.1.</span> <span class="nav-text">Roll-up(上卷)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Drill-down-下钻"><span class="nav-number">1.2.2.</span> <span class="nav-text">Drill-down(下钻)</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#启用mockito注解"><span class="nav-number">1.</span> <span class="nav-text">启用mockito注解</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Mock"><span class="nav-number">2.</span> <span class="nav-text">@Mock</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SPY"><span class="nav-number">3.</span> <span class="nav-text">SPY</span></a></li></ol></div>
             
 
           </div>
