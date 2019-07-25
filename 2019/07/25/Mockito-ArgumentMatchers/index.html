@@ -88,7 +88,7 @@
 <meta property="og:description" content="本章将介绍如何使用ArgumentMatcher。 Maven依赖123456&amp;lt;dependency&amp;gt;    &amp;lt;groupId&amp;gt;org.mockito&amp;lt;/groupId&amp;gt;     &amp;lt;artifactId&amp;gt;mockito-core&amp;lt;/artifactId&amp;gt;    &amp;lt;version&amp;gt;&amp;#123;latest.version&amp;#12">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://yoursite.com/images/InvalidUseOfMatchersException.png">
-<meta property="og:updated_time" content="2019-07-25T09:27:12.695Z">
+<meta property="og:updated_time" content="2019-07-25T09:34:08.057Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Mockito-ArgumentMatchers">
 <meta name="twitter:description" content="本章将介绍如何使用ArgumentMatcher。 Maven依赖123456&amp;lt;dependency&amp;gt;    &amp;lt;groupId&amp;gt;org.mockito&amp;lt;/groupId&amp;gt;     &amp;lt;artifactId&amp;gt;mockito-core&amp;lt;/artifactId&amp;gt;    &amp;lt;version&amp;gt;&amp;#123;latest.version&amp;#12">
@@ -371,12 +371,14 @@
 <p>1很好理解，对于2来看一个例子</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">String orMatcher = or(eq(<span class="string">"poppy"</span>), endsWith(<span class="string">"y"</span>));</span><br><span class="line">verify(mock).analyze(orMatcher);</span><br></pre></td></tr></table></figure>
 
-<p>会抛出<strong><em>InvalidUseOfMatchersException</em></strong></p>
+<p>会抛出<strong><em>InvalidUseOfMatchersException</em></strong>，错误信息中给出了正确使用的demo。</p>
 <p><img src="/images/InvalidUseOfMatchersException.png" alt></p>
 <p>正确使用如下</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">verify(mock).analyze(or(eq(<span class="string">"poppy"</span>), endsWith(<span class="string">"y"</span>)));</span><br></pre></td></tr></table></figure>
 
 <p><em>Mockito</em>还提供了额外的匹配方法（“not”、“and”、“or”）等。</p>
+<p>参考资料：</p>
+<p><a href="https://www.baeldung.com/mockito-argument-matchers" target="_blank" rel="noopener">Mockito ArgumentMatchers</a></p>
 
       
     </div>
