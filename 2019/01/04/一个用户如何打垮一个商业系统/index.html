@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="Tony  Liang&#39;s  Blog">
 <meta property="og:description" content="商业系统会有针对预算和余额的校验。拿我们的系统来说，在投放阶段和计费阶段会校验。当发现用户预算或金额不足以支付下一次点击/电话时（撞线），会下掉用户下的所有广告。 以上是业务背景，下面描述下遇到的一个大坑，以及填坑过程。 现象描述早9:30收到用户反馈，商业产品投放时报错，广告管理列表白屏。 排查发现商业系统服务不可用。表现为：接口请求超时，消息堆积。 紧急修复为保证线上服务可用，将线上流量切换到">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-07-08T09:14:50.995Z">
+<meta property="og:updated_time" content="2019-07-25T08:16:31.659Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="一个用户如何打垮一个商业系统">
 <meta name="twitter:description" content="商业系统会有针对预算和余额的校验。拿我们的系统来说，在投放阶段和计费阶段会校验。当发现用户预算或金额不足以支付下一次点击/电话时（撞线），会下掉用户下的所有广告。 以上是业务背景，下面描述下遇到的一个大坑，以及填坑过程。 现象描述早9:30收到用户反馈，商业产品投放时报错，广告管理列表白屏。 排查发现商业系统服务不可用。表现为：接口请求超时，消息堆积。 紧急修复为保证线上服务可用，将线上流量切换到">
@@ -350,7 +350,7 @@
 <h2 id="问题排查"><a href="#问题排查" class="headerlink" title="问题排查"></a>问题排查</h2><ol>
 <li><p>从监控平台来看，8~10点期间，服务方耗时量，请求排队量，调用方超时量激增，猜测服务处理能力出现问题。</p>
 </li>
-<li><p>服务方访问量有三处突增，分别在8,9,10点，突增时刻服务方调用量和调用方请求量不匹配，平台同事解释是服务方的方法执行完毕后才会上报，同时给出了服务接口的执行时间，个别接口执行时间超过了<strong>两个小时</strong>，方法执行频次达<strong>上千次</strong>！</p>
+<li><p>服务方访问量有三处突增，分别在8,9,10点，个别接口执行时间超过了<strong>两个小时</strong>，方法执行频次达<strong>上千次</strong>！</p>
 </li>
 <li><p>分析投放日志发现：撞线量同比扩大了10倍以上，达到百万级，共涉及到4位用户。继续分析发现，其中一位用户从零点开始有规律的在刷推广接口进行上下线操作。</p>
 </li>
@@ -488,7 +488,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-count">8</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
